@@ -1,0 +1,41 @@
+{% extends 'block/block.html' %}
+{% block title %}LOGIN{% endblock %}
+{% block body %}
+    <header id="header">
+				<div class="inner">
+					<a href="" class="logo" >HOME</a>
+					<nav id="nav">
+                        <a href="{% url 'editDetails' %}" id="editDetails">| EDIT ME</a>
+						<a href="{% url 'logout' %}" id="logout">| LOGOUT</a>
+					</nav>
+					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+				</div>
+    </header>
+    <section id="banner1">
+    <h1>INQUIAMAK</h1>
+    <p>MAKE YOUR WAY BETTER</p>
+    <form action="{% url 'authreport' %}" method="post">
+        {% csrf_token %}
+        <div class="container 75%">
+            <h4 id="headdate">Enter the date :</h4>
+            <div class="row uniform 50%">
+
+                <div class="6u 12u$(xsmall)">
+
+                    <input name="date" id="dateinput"  type="text" placeholder="DD/MM/YYYY"/>
+                </div>
+
+            </div>
+        </div>
+        <h3 id="errorinlogin">{{ msg }}</h3>
+
+        <ul id="list">
+            <p>
+
+            </p>
+        <li><button type="submit" name='submit' value="login" id="bannerbtn">Show</button></li>
+
+        </ul>
+    </form>
+    </section>
+{% endblock %}

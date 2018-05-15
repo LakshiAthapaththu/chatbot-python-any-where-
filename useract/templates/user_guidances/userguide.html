@@ -1,0 +1,80 @@
+{% extends 'block/block.html' %}
+{% block title %}USER GUIDANCE{% endblock %}
+
+{% block body %}
+    <body class="subpage">
+    <!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="{% url 'userguide' %}" class="logo">USER GUIDANCE</a>
+					<nav id="nav">
+                        <a href="{% url 'home' %}" id="home">| HOME</a>
+                        <a href="{% url 'editDetails' %}" id="editDetails">| EDIT ME</a>
+                        <a href="{% url 'viewhistory' %}" id="viewhistory">| VIEW HISTORY</a>
+						<a href="{% url 'logout' %}" id="logout">| LOGOUT</a>
+					</nav>
+					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+				</div>
+			</header>
+
+    <section>
+        <section id="three" class="wrapper">
+				<div class="inner">
+					<header class="align-center" >
+						<h2>User Guidance</h2>
+						<p>make your way better </p>
+					</header>
+                    <p>
+                        Hi Welcome to InquiaMaK Inquiry Making system. You are facilitated to report your problems regarding
+                        public transportation services in Sri Lanka via Mr.bot. Your inquiry is supposed to include
+                        any problem regarding public transportation services (Bus and Train) in Sri Lanka. Your problem will be
+                        succefully reported to responsible authorizations within a day.</p>
+                    <p>
+
+                        You can log into your account using your username and password. All usernames and passwords are secured within the
+                        system. Interactive chat bot requires to type 'hi bot' to start the chat. Then bot asks your inquiry and you are supposed
+                        to type valid inquiries. By providing correct answers for bot's quistions you can complete your inquiry.
+                        Bus numbers should be formatted as XXX-YYYY(XX-YYYY) (X is an alphebetic letter and Y is an integer).Any registered bus number
+                        with a route permit is acceptable. All required dates
+                        should be formatted as DD/MM/YYYY (eg:03/04/2018, 23/12/2017). You are allowed to make inquiries within a year.
+                        All time inputs should be formatted as XX:XX (eg:3:44,5:23,2:09,14:43). Any invalid input is seggested a cancelation.
+                        After canceling proceedure you can start a new conversation. Before saving your valid inquiry bot will show the
+                        complete inquiry and you are supposed to confirm or cancel it.
+
+                    </p>
+                    <h4>Allowed Train List</h4>
+                    <ul>
+                        <li>Udarata Menike</li>
+                        <li>Podi Menike</li>
+                        <li>Tikiri Menike</li>
+                        <li>Senkadagala Menike</li>
+                        <li>Yal Devi</li>
+                        <li>Uttara Devi</li>
+                        <li>Udaya Devi</li>
+                        <li>Rajarata Rejini</li>
+                        <li>Ruhunu Kumari</li>
+                        <li>Samudra Devi</li>
+                        <li>Galu Kumari</li>
+                        <li>Sagarika</li>
+                        <li>Siyanae Kumari</li>
+                        <li>Nayana Kumari</li>
+                        <li>Meena Gaya</li>
+                        <li>Deyata Kirula</li>
+                        <p>
+
+                        </p>
+                        <p> Train name should be one of the above listed train names.</p>
+
+
+
+                    </ul>
+                </div>
+			</section>
+
+
+
+    </section>
+
+    </body>
+
+{% endblock %}

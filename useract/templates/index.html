@@ -1,0 +1,10 @@
+{{ data }}
+{% for obj in data %}
+   {{ obj.inquiry_id }}
+    {{ obj.USERNAME.username }}
+    {{ obj.description }}
+    {{ obj.add_state }}
+    {{ obj.report_id.report_id }}
+    <br>
+
+{% endfor %}

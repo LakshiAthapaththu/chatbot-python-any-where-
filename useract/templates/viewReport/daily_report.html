@@ -1,0 +1,57 @@
+{% extends 'block/block.html' %}
+{% block title %}REPORT{% endblock %}
+{% block body %}
+<!-- Table -->
+    <body class="subpage">
+            <header id="header" >
+                        <div class="inner" id="inner1">
+                            <a class="logo">DAILY REPORT</a>
+                            <nav id="nav" >
+                                <a href="{% url 'adminpage' %}" id="home">| HOME</a>
+                                <a href="{% url 'logout' %}">| LOGOUT</a>
+
+                            </nav>
+                            <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+                        </div>
+            </header>
+            <p>
+
+            </p>
+            {% for object in authority %}
+                <h3 align="middle" id="reportHeader">Report of {{ object.authority_name}} for {{ date }}</h3>
+            {% endfor %}
+
+        <section>
+            <div class="table-wrapper">
+                <table class="alt">
+                <p>
+                </p>
+                    <thead>
+                    <tr>
+                        <th>Inquiry ID</th>
+                        <th>User Name</th>
+                        <th>Description</th>
+                        <th>Reported Date</th>
+                        <th>Reported Time</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for obj in object %}
+                        <tr>
+                        <td>{{ obj.inquiry_id }}</td>
+                        <td>{{ obj.USERNAME }}</td>
+                        <td>{{ obj.description }}</td>
+                        <td>{{ obj.reported_date }}</td>
+                         <td>{{ obj.reported_time }}</td>
+
+
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+
+                </table>
+            </div>
+        </section>
+    </body>
+{% endblock %}

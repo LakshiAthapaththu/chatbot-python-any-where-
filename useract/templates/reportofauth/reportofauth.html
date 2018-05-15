@@ -1,0 +1,309 @@
+<html>
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'reportstuff/index.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'assets5/css/main.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'assets5/css/main2.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'assertsChatWindow/main.css' %}"/>
+<style>
+#chartdiv {
+	width		: 100%;
+	height		: 500px;
+	font-size	: 11px;
+}
+#chartdiv1{
+    width		: 100%;
+	height		: 500px;
+	font-size	: 11px;
+}
+</style>
+<head>
+	<title>REPORT</title>
+    <script src="../../static/reportstuff/excanvas.js"></script>
+	<script src="../../static/reportstuff/html5-canvas-bar-graph.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+
+    <title>{% block title %}{% endblock %}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body class="subpage">
+     <header id="header" >
+				<div class="inner" id="inner1">
+					<a class="logo">REPORT</a>
+					<nav id="nav" >
+                        <a href="{% url 'exhome' %}" id="home">| HOME</a>
+                        <a href="{% url 'logout' %}">| LOGOUT</a>
+
+					</nav>
+					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+				</div>
+     </header>
+     <section id="three" class="wrapper special">
+        <div class="inner">
+            <header class="align-center" id="headofAdminPage">
+                <h2>InquiaMaK</h2>
+                <p>Make Your Way Better </p>
+            </header>
+        </div>
+     </section>
+    <section>
+            <div class="table-wrapper">
+                <table class="alt">
+                    <thead>
+                    <tr>
+                        <th>Inquiry ID</th>
+                        <th>Description</th>
+                        <th>Reported Date</th>
+                        <th>Reported Time</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for object in obj%}
+                        <tr>
+                        <td>{{ object.inquiry_id }}</td>
+                        <td>{{ object.description }}</td>
+                        <td>{{ object.reported_date}}</td>
+                        <td>{{ object.reported_time}}</td>
+
+                        <!--add a separate date and time colomns-->
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+
+                </table>
+        </div>
+        </section>
+        <input type="hidden" id="myVar1" name="variable" value="{{ var1 }}">
+        <input type="hidden" id="myVar2" name="variable" value="{{ var2 }}">
+        <input type="hidden" id="myVar3" name="variable" value="{{ var3 }}">
+        <input type="hidden" id="myVar4" name="variable" value="{{ var4 }}">
+        <input type="hidden" id="myVar5" name="variable" value="{{ var5 }}">
+        <input type="hidden" id="myVar6" name="variable" value="{{ var6 }}">
+        <input type="hidden" id="myVar7" name="variable" value="{{ var7 }}">
+        <input type="hidden" id="myVar8" name="variable" value="{{ var8 }}">
+        <input type="hidden" id="myVar9" name="variable" value="{{ var9 }}">
+        <input type="hidden" id="myVar10" name="variable" value="{{ var10 }}">
+        <input type="hidden" id="myVar11" name="variable" value="{{ var11 }}">
+        <input type="hidden" id="myVar12" name="variable" value="{{ var12 }}">
+
+        <input type="hidden" id="m1" name="variable" value="{{ m1 }}">
+        <input type="hidden" id="m2" name="variable" value="{{ m2 }}">
+        <input type="hidden" id="m3" name="variable" value="{{ m3 }}">
+        <input type="hidden" id="m4" name="variable" value="{{ m4 }}">
+        <input type="hidden" id="m5" name="variable" value="{{ m5 }}">
+        <input type="hidden" id="m6" name="variable" value="{{ m6 }}">
+        <input type="hidden" id="m7" name="variable" value="{{ m7 }}">
+        <input type="hidden" id="m8" name="variable" value="{{ m8 }}">
+        <input type="hidden" id="m9" name="variable" value="{{ m9 }}">
+        <input type="hidden" id="m10" name="variable" value="{{ m10 }}">
+        <input type="hidden" id="m11" name="variable" value="{{ m11 }}">
+        <input type="hidden" id="m12" name="variable" value="{{ m12 }}">
+
+        <input type="hidden" id="d1" name="variable" value="{{ d1 }}">
+        <input type="hidden" id="d2" name="variable" value="{{ d2 }}">
+        <input type="hidden" id="d3" name="variable" value="{{ d3 }}">
+        <input type="hidden" id="d4" name="variable" value="{{ d4 }}">
+        <input type="hidden" id="d5" name="variable" value="{{ d5 }}">
+        <input type="hidden" id="d6" name="variable" value="{{ d6 }}">
+        <input type="hidden" id="d7" name="variable" value="{{ d7 }}">
+
+    <div id="chartdiv"></div>
+    <h6 id="parabtm">Number of Inquiry for Last 12 Months</h6>
+
+
+    <div id="chartdiv1"></div>
+    <h6 id="parabtm">Number of Inquiry for Last 7 Days</h6>
+
+    <!--<section>
+	<div id="graphDiv1" ></div>
+	<div id="graphDiv2"></div>
+     </section>-->
+     <footer id="footer">
+				<div class="inner">
+					<div class="flex">
+						<div class="copyright">
+							&copy; Untitled. Design: Lakshi Athapaththu.
+						</div>
+
+					</div>
+				</div>
+       </footer>
+
+<script>
+        var myVar1 = document.getElementById("myVar1").value;
+		var myVar2 = document.getElementById("myVar2").value;
+		var myVar3 = document.getElementById("myVar3").value;
+		var myVar4 = document.getElementById("myVar4").value;
+		var myVar5 = document.getElementById("myVar5").value;
+		var myVar6 = document.getElementById("myVar6").value;
+		var myVar7 = document.getElementById("myVar7").value;
+		var myVar8 = document.getElementById("myVar8").value;
+		var myVar9 = document.getElementById("myVar9").value;
+		var myVar10 = document.getElementById("myVar10").value;
+		var myVar11 = document.getElementById("myVar11").value;
+		var myVar12 = document.getElementById("myVar12").value;
+
+		var m1 = document.getElementById("m1").value;
+		var m2 = document.getElementById("m2").value;
+		var m3 = document.getElementById("m3").value;
+		var m4 = document.getElementById("m4").value;
+		var m5 = document.getElementById("m5").value;
+		var m6 = document.getElementById("m6").value;
+		var m7 = document.getElementById("m7").value;
+		var m8 = document.getElementById("m8").value;
+		var m9 = document.getElementById("m9").value;
+		var m10 = document.getElementById("m10").value;
+		var m11 = document.getElementById("m11").value;
+		var m12 = document.getElementById("m12").value;
+
+		var d1 = document.getElementById("d1").value;
+		var d2 = document.getElementById("d2").value;
+		var d3 = document.getElementById("d3").value;
+		var d4 = document.getElementById("d4").value;
+		var d5 = document.getElementById("d5").value;
+		var d6 = document.getElementById("d6").value;
+		var d7 = document.getElementById("d7").value;
+
+var chart = AmCharts.makeChart( "chartdiv", {
+  "type": "serial",
+  "theme": "light",
+  "dataProvider": [ {
+    "label": m1,
+    "visits":myVar1
+  }, {
+    "label":m2,
+    "visits": myVar2
+  }, {
+    "label": m3,
+    "visits": myVar3
+  }, {
+    "label": m4,
+    "visits": myVar4
+  }, {
+    "label": m5,
+    "visits":myVar5
+  }, {
+    "label": m6,
+    "visits": myVar6
+  }, {
+    "label": m7,
+    "visits": myVar7
+  }, {
+    "label": m8,
+    "visits":myVar8
+  }, {
+    "label":m9,
+    "visits": myVar9
+  }, {
+    "label": m10,
+    "visits": myVar10
+  }, {
+    "label": m11,
+    "visits": myVar11
+  }, {
+    "label": m12,
+    "visits":myVar12
+  } ],
+  "valueAxes": [ {
+    "gridColor": "#FFFFFF",
+    "gridAlpha": 0.2,
+    "dashLength": 0
+  } ],
+  "gridAboveGraphs": true,
+  "startDuration": 1,
+  "graphs": [ {
+    "balloonText": "[[category]]: <b>[[value]]</b>",
+    "fillAlphas": 0.8,
+    "lineAlpha": 0.2,
+    "type": "column",
+    "valueField": "visits"
+  } ],
+  "chartCursor": {
+    "categoryBalloonEnabled": false,
+    "cursorAlpha": 0,
+    "zoomable": false
+  },
+  "categoryField": "label",
+  "categoryAxis": {
+    "gridPosition": "start",
+    "gridAlpha": 0,
+    "tickPosition": "start",
+    "tickLength": 20
+  },
+  "export": {
+    "enabled": true
+  }
+} );
+var chart1 = AmCharts.makeChart( "chartdiv1", {
+  "type": "serial",
+  "theme": "light",
+  "dataProvider": [ {
+    "label": "day1",
+    "visits":d1
+  }, {
+    "label":"day2",
+    "visits": d2
+  }, {
+    "label": "day3",
+    "visits": d3
+  }, {
+    "label":"day4",
+    "visits": d4
+  }, {
+    "label": "day5",
+    "visits":d5
+  }, {
+    "label": "day6",
+    "visits": d6
+  }, {
+    "label": "day7",
+    "visits": d7
+  }],
+  "valueAxes": [ {
+    "gridColor": "#FFFFFF",
+    "gridAlpha": 0.2,
+    "dashLength": 0
+  } ],
+  "gridAboveGraphs": true,
+  "startDuration": 1,
+  "graphs": [ {
+    "balloonText": "[[category]]: <b>[[value]]</b>",
+    "fillAlphas": 0.8,
+    "lineAlpha": 0.2,
+    "type": "column",
+    "valueField": "visits"
+  } ],
+  "chartCursor": {
+    "categoryBalloonEnabled": false,
+    "cursorAlpha": 0,
+    "zoomable": false
+  },
+  "categoryField": "label",
+  "categoryAxis": {
+    "gridPosition": "start",
+    "gridAlpha": 0,
+    "tickPosition": "start",
+    "tickLength": 20
+  },
+  "export": {
+    "enabled": true
+  }});
+</script>
+<script src="{% static 'assets5/js/jquery.min.js' %}"></script>
+<script src="{% static 'assets5/js/skel.min.js' %}"></script>
+<script src="{% static 'assets5/js/util.js' %}"></script>
+<script src="{% static 'assets5/js/main.js' %}"></script>
+<script src="{% static 'assertsChatWindow/main.js' %}"></script>
+<script src="{% static 'extraJS/functions.js' %}"></script>
+<script src="{% static 'assertsChatWindow/chat.js' %}"></script>
+</body>
+</html>

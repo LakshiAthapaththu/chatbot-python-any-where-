@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <form method="post" action="{% url 'train' %}">
+    <button type="submit">train</button>
+</form>
+{% for i in all %}
+    {{ i.sentence }}
+    {{ i.set_id.class_id_of.class_name }}
+    {{ i.set_id.layer_id_of.layer_name }}
+    {{ i.set_id.parent_id }}
+    <br>
+
+{% endfor %}
+</body>
+</html>

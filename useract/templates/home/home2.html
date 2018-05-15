@@ -1,0 +1,116 @@
+<script>
+    //function getTime() {
+        //var date = new Date();
+        //time = date.getHours() + ":"+date.getMinutes();
+        //return time
+
+    //}
+    //var proPic = '../../media/pictures/14519690_1229922057087159_4228600883088181522_n.jpg';
+    var proPic ='../../media/pictures/propic1.png';
+    //var proPic;
+        function timeNow() {
+        var d = new Date(),
+        h = (d.getHours()<10?'0':'') + d.getHours(),
+        m = (d.getMinutes()<10?'0':'') + d.getMinutes();
+        return h + ':' + m;
+        }
+
+        $("#h4pb").click(function(e){
+            e.preventDefault();
+            $.ajax({
+            type : 'GET',
+            url: '{% url 'getProPic' %}',
+            data: {
+
+            },
+            dataType: 'json',
+            success: function (json) {
+                proPic = json.urlof;
+            }
+          });
+
+         });
+         $("#headBar").click(function(e){
+            e.preventDefault();
+            $.ajax({
+            type : 'GET',
+            url: '{% url 'getProPic' %}',
+            data: {
+
+            },
+            dataType: 'json',
+            success: function (json) {
+                proPic = json.urlof;
+            }
+          });
+
+         });
+        $("#botpic").click(function(e){
+            e.preventDefault();
+            $.ajax({
+            type : 'GET',
+            url: '{% url 'getProPic' %}',
+            data: {
+
+            },
+            dataType: 'json',
+            success: function (json) {
+                proPic = json.urlof;
+            }
+          });
+
+         });
+
+        $("#send").click(function (e) {
+          e.preventDefault();
+          var val = $("#msgbox").val();
+          $(".ulclass").append(
+                        '<li>'+
+                            '<div class="left-chat">'+
+                                '<img src='+proPic+'>'+
+                                '<p>'+val+'<br>'+'<br>'+timeNow()+
+                                '</p>'+
+
+                            '</div>'+
+                        '</li>'
+
+
+        );
+          scroll();
+          $.ajax({
+            type : 'GET',
+            url: '{% url 'test' %}',
+            data: {
+              'val': val
+            },
+            dataType: 'json',
+            success: function (json) {
+
+                $(".ulclass").append(
+                        '<li>'+
+                            '<div class="right-chat">'+
+                                '<img src="../../static/images/bot.png">'+
+                                '<p>'+json.msg+'<br>'+'<br>'+timeNow()+
+                                '</p>'+
+
+                            '</div>'+
+                        '</li>'
+
+        );
+                scroll()
+            }
+          });
+
+        $("#msgbox").val("");
+
+
+    });
+    function scroll() {
+        var messageBody = document.querySelector('#messageBody');
+        messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
+
+
+    }
+
+
+</script>

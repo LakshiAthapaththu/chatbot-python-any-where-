@@ -1,0 +1,37 @@
+{% extends 'block/block.html' %}
+{% block title %}EDIT DETAILS{% endblock %}
+
+{% block body %}
+    <body class="subpage">
+    <!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="{% url 'editDetails' %}" class="logo">EDIT YOU</a>
+					<nav id="nav">
+						<a href="{% url 'logout' %}" id="logout">| LOGOUT</a>
+
+					</nav>
+					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+				</div>
+			</header>
+    <section>
+        <div class="container">
+            <h2>  </h2>
+            <form class="form-horizontal" action="" method="post" id="forms">
+                {% csrf_token %}
+                {% include "form_temp/form_template.html" %}
+                <p>
+
+                </p>
+                <h4 id="success">{{ msg }}</h4>
+                <div style="float: left">
+                    <p>      </p>
+                    <button type="submit" id="subBtn" name="sub" value="">SAVE </button>
+                    <button type="reset" id="subBtn"  name="rst" value=>RESET</button>
+                    <p> </p>
+                </div>
+            </form>
+        </div>
+    </section>
+    </body>
+{% endblock %}

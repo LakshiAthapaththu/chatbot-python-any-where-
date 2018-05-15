@@ -1,0 +1,49 @@
+{% extends 'block/block.html' %}
+{% block title %}INQUIAMAK VIEW HISTORY{% endblock %}
+{% block body %}
+
+    <body class="subpage">
+    <!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="{% url 'viewhistory' %}" class="logo">{{ user }}'S HISTORY</a>
+					<nav id="nav">
+                        <a href="{% url 'home' %}" id="home">| HOME</a>
+                        <a href="{% url 'editDetails' %}" id="editDetails">| EDIT ME</a>
+                        <a href="{% url 'userguide' %}" id="userguide">| USER GUIDE</a>
+						<a href="{% url 'logout' %}" id="logout">| LOGOUT</a>
+					</nav>
+					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+				</div>
+			</header>
+    <!-- Table -->
+        <section>
+            <div class="table-wrapper">
+                <table class="alt">
+                    <thead>
+                    <tr>
+                        <th>Inquiry ID</th>
+                        <th>Description</th>
+                        <th>Reported Date</th>
+                        <th>Reported Time</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for object in obj%}
+                        <tr>
+                        <td>{{ object.inquiry_id }}</td>
+                        <td>{{ object.description }}</td>
+                        <td>{{ object.reported_date}}</td>
+                        <td>{{ object.reported_time}}</td>
+
+                        <!--add a separate date and time colomns-->
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+
+                </table>
+        </div>
+        </section>
+
+
+{% endblock %}

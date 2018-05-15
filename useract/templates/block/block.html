@@ -1,0 +1,43 @@
+<html>
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'assets5/css/main.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'assets5/css/main2.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'assertsChatWindow/main.css' %}"/>
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>{% block title %}{% endblock %}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+
+{% block body %}
+
+{% endblock %}
+            <footer id="footer">
+				<div class="inner">
+					<div class="flex">
+						<div class="copyright">
+							&copy; Untitled. Design: Lakshi Athapaththu.
+						</div>
+
+					</div>
+				</div>
+			</footer>
+<!-- Scripts -->
+<script src="{% static 'assets5/js/jquery.min.js' %}"></script>
+<script src="{% static 'assets5/js/skel.min.js' %}"></script>
+<script src="{% static 'assets5/js/util.js' %}"></script>
+<script src="{% static 'assets5/js/main.js' %}"></script>
+<script src="{% static 'assertsChatWindow/main.js' %}"></script>
+<script src="{% static 'extraJS/functions.js' %}"></script>
+<script src="{% static 'assertsChatWindow/chat.js' %}"></script>
+
+{% block scripts%}
+
+{% endblock %}
+</body>
+</html>

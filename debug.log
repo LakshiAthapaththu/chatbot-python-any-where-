@@ -1,0 +1,10 @@
+[0426/234244.307:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[0426/234244.334:ERROR:exception_snapshot_win.cc(88)] thread ID 10168 not found in process
+[0426/234244.334:WARNING:crash_report_exception_handler.cc(62)] ProcessSnapshotWin::Initialize failed
+[0427/172114.923:ERROR:file_io_win.cc(179)] CreateFile C:\Users\LAKSHI~1\AppData\Local\Temp\scoped_dir11876_11450\Crashpad\settings.dat: The process cannot access the file because it is being used by another process. (0x20)
+[0508/231916.195:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[0508/231916.221:ERROR:exception_snapshot_win.cc(88)] thread ID 2964 not found in process
+[0508/231916.221:WARNING:crash_report_exception_handler.cc(62)] ProcessSnapshotWin::Initialize failed
+[0508/231916.658:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[0508/231916.660:ERROR:exception_snapshot_win.cc(88)] thread ID 11072 not found in process
+[0508/231916.661:WARNING:crash_report_exception_handler.cc(62)] ProcessSnapshotWin::Initialize failed

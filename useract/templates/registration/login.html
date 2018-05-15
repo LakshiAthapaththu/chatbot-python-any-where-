@@ -1,0 +1,32 @@
+{% extends 'block/block.html' %}
+{% block title %}LOGIN{% endblock %}
+{% block body %}
+    <section id="banner">
+    <h1 id="hdforbanner">INQUIAMAK</h1>
+    <p id="paraforbanner">MAKE YOUR WAY BETTER</p>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="container 75%">
+            <div class="row uniform 50%">
+                <div class="6u 12u$(xsmall)">
+                    <h4>User Name</h4>
+                    <input name="username" id="logininput"  type="text" />
+                </div>
+                <div class="6u$ 12u$(xsmall)">
+                    <h4>Password</h4>
+                    <input name="password" id="logininput" type="password" id="pw"/>
+
+                </div>
+
+            </div>
+        </div>
+         <h3 id="errorinlogin">{{ msg }}</h3>
+        <ul id="list">
+        <li><button type="submit" name='submit' value="login" id="bannerbtn">Login</button>
+        <button type="button" value="signup" id="bannerbtn"><a id="link" href="{% url 'register' %}">SignUp</a></button></li>
+
+        </ul>
+    </form>
+
+    </section>
+{% endblock %}
