@@ -25,7 +25,7 @@ SECRET_KEY = ')_80)(#p!*@$^h32oeut3!t6%$(oupdd#+0xv4zr&8-qybgu4q'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -122,6 +122,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 LOGIN_REDIRECT_URL = 'home'
 STATIC_URL = '/static/'
+STATIC_ROOT = '/home/urban/chatbotinpythonwhere/InquaryMakingChatBot'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'useract/media')
 LOGIN_URL = 'home'
