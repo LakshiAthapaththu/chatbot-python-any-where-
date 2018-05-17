@@ -91,8 +91,43 @@ class SignUp(View):
 
 
 
-def logout_view(request):
+class logoutuser(View):
+    temp = 'home/home.html'
+    temp1 = 'registration/login.html'
+    temp2 = 'adminHome/adminHome.html'
+    temp3 = "reportsearch/report.html"
+    def get(self, request):
+        template = loader.get_template('registration/login.html')
+        logout(request)
+        return HttpResponse(template.render(request))
 
-    template = loader.get_template('registration/login.html')
-    logout(request)
-    return HttpResponse(template.render(request))
+    def post(self,request):
+
+            msg = ""
+            chat.setTo(0)
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            staff_state = "no"
+            # user1=User.objects.filter(username=username,password=password)
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                request.session['users'] = username
+                type_obj = UserType.objects.get(username=User.objects.get(username=username))
+                type = type_obj.type
+                if (type == "external"):
+                    auth = AuthofUser.objects.get(username=User.objects.get(username=username))
+                    request.session['auth'] = auth.auth.authority_id
+                    return render(request, self.temp3)
+
+                elif (user.is_staff):
+                    all_layer_objects = Layers.objects.all()
+                    all_class_objects = Classes.objects.all()
+                    return render(request, self.temp2,
+                                  {'user': request.session['users'].upper(), 'layers': all_layer_objects,
+                                   'classes': all_class_objects})
+
+                else:
+                    return render(request, self.temp, {'user': request.session['users'].upper()})
+            else:
+                msg = "invalid"
+                return render(request, self.temp1, {'msg': msg})

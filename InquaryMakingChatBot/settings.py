@@ -25,7 +25,7 @@ SECRET_KEY = ')_80)(#p!*@$^h32oeut3!t6%$(oupdd#+0xv4zr&8-qybgu4q'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["inquiamakchatbot.herokuapp.com"]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -121,12 +121,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 LOGIN_REDIRECT_URL = 'home'
-STATIC_URL = '/useract/static/'
+STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'useract/media')
 LOGIN_URL = 'home'
 TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
 LOGOUT_REDIRECT_URL = 'home'
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-STATIC_ROOT = os.path.join((BASE_DIR),'useract/static')
-

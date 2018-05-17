@@ -1,5 +1,6 @@
 from chatbot.functions.chat import clasify
 from chatbot.functions.storeSynapes import read
+import json
 from useract.functions import saveData
 import datetime
 from useract.functions import validate_inputs
@@ -106,6 +107,7 @@ def reply(message,user):
     #get the date and valid inquiry
     elif(count == 2 ):
        if(catogary1 == "bus"):
+            setInquiry("Bus No: " + message + '<br>')
             validity = validate_inputs.validBusNumber(message)
             if (validity == True):
                     output = "enter the date you faced the inconvenience"
@@ -120,6 +122,7 @@ def reply(message,user):
 
        elif(catogary1 == "train"):
            if (validate_inputs.validateTrainName(message)):
+               setInquiry("Train Name: " + message + '<br>')
                output = "enter the date you faced the inconvenience"
                setTo(3)
 
@@ -152,6 +155,8 @@ def reply(message,user):
         validity = validate_inputs.valiTime(time,day,month,year)
         if(validity == True):
             setInquiry("Time: "+message)
+
+            #output = inquiry+'<br>'+'<br>'+"Confirm the Inquiry(yes/no)"
             if(catogary2 != ''):
                 output = getOutPut(catogary2,catogary1)
                 if(output != ''):

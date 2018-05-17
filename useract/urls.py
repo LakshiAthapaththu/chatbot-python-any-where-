@@ -4,7 +4,6 @@ from .all_views import userView,adminView,customerView,externalUserView
 from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
-
 from django.contrib.auth.decorators import login_required
 urlpatterns = [
 #url(r'^$',views.getLoginPage,name='login_page'),
@@ -13,7 +12,7 @@ urlpatterns = [
 #user views
 url(r'^login/$', userView.SignIn.as_view(), name='login'),
 url(r'^register/$',userView.SignUp.as_view(),name='register'),
-url(r'^logout/$', userView.logout_view, name='logout'),
+url(r'^logout/$', userView.logoutuser.as_view(), name='logout'),
 
 #views
 url(r'^home/$',views.getHomePage,name = 'home'),
@@ -32,15 +31,14 @@ url(r'^edit/$',customerView.editDetails.as_view(),name='editDetails'),
 url(r'^test/$',customerView.testing,name='test'),
 url(r'^getProPic/$',customerView.getProPic,name='getProPic'),
 
-#external user vies
+    #new
 url(r'^authreport/$',externalUserView.getReport.as_view(),name='authreport'),
 url(r'^exhome/$',externalUserView.getSearchHome.as_view(),name='exhome'),
 #testing purposes
 
-#url(r'^chatWindow/$',views.getChatWindow,name='chatWindow'),
+url(r'^chatWindow/$',views.getChatWindow,name='chatWindow'),
 #get the chatwindow remove later
 #url(r'^get/$',customerView.getpage,name='get'),
-#for some testing purpposes
-url(r'^getsets/$',customerView.getAllsets,name='getsets')
+#url(r'^getsets/$',customerView.getAllsets,name='getsets')
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
