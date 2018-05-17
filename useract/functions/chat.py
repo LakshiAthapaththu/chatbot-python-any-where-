@@ -1,6 +1,5 @@
 from chatbot.functions.chat import clasify
 from chatbot.functions.storeSynapes import read
-import json
 from useract.functions import saveData
 import datetime
 from useract.functions import validate_inputs
@@ -153,8 +152,6 @@ def reply(message,user):
         validity = validate_inputs.valiTime(time,day,month,year)
         if(validity == True):
             setInquiry("Time: "+message)
-
-            #output = inquiry+'<br>'+'<br>'+"Confirm the Inquiry(yes/no)"
             if(catogary2 != ''):
                 output = getOutPut(catogary2,catogary1)
                 if(output != ''):

@@ -7,10 +7,9 @@ import datetime
 import numpy
 stemmer = LancasterStemmer()
 from chatbot.functions.general_functions import derivative,sigmoid
-from chatbot.functions import storeSynapes
 
 def makeBags(setObj):
-    #setObject = sets.objects.filter(set_id=set_id)
+
     parent = setObj.parent_id
     layer = setObj.layer_id_of
     layer1 = setObj.layer_id_of.layer_id

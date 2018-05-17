@@ -8,7 +8,6 @@ import re
 from django.contrib.auth.hashers import make_password
 from django.http import JsonResponse
 from useract.functions import chat
-from useract.functions import periodic_tasks
 
 class viewInqury(View):
     temp = 'view history/view_history.html'
@@ -18,8 +17,6 @@ class viewInqury(View):
         object = Inquiry.objects.filter(USERNAME=user_id)
         return render(request, self.temp, {'user':user_name.upper(), 'obj':object})
 
-
-
 class editDetails(View):
     form_class = editProfile
     temp = 'editDetails/editDetails.html'
@@ -28,7 +25,7 @@ class editDetails(View):
     # add the template
     def get(self, request):
         form = self.form_class(None)
-        # if user requst to make his acc return brank page
+        # if user requst to make his acc return blank page
         return render(request, self.temp, {'form': form,'user':request.session['users']})
         #add user session
 
@@ -80,7 +77,8 @@ class editDetails(View):
                                         if ('password' in UpdateFields):
                                             first_pass = obj_user[0].password.split('$')
                                             hasher = first_pass[0]
-                                            salt = first_pass[1]  # grabbing salt from the first password of the database
+                                            salt = first_pass[1]
+                                            # grabbing salt from the first password of the database
                                             make_password(new_pw, salt, hasher)
                                             #make encrypted password
                                             obj_user.update(password = make_password(new_pw, salt, hasher))
@@ -106,13 +104,8 @@ class editDetails(View):
             return render(request, self.temp, {'form': form})
 
 
-def posting(request):
-    if request.method == 'POST':
-        msg = request.POST.get('msgbox')
-        return JsonResponse({'msg': msg})
-
-def getpage(request):
-    return render(request,"test/test.html")
+#def getpage(request):
+    #return render(request,"test/test.html")
 
 
 def testing(request):

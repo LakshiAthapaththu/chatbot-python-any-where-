@@ -43,9 +43,7 @@ class PdfPrint():
             data.append(Paragraph('REPORTED DATE :'+objec.reported_date+"<br/>"
                                   +'REPORTED TIME :' + objec.reported_time+"<br/>"+
                                   'INQUIRY :  ' + inq+'<br/>', styles['BodyText']))
-            #data.append(Paragraph('REPORTED TIME :' + objec.reported_time, styles['BodyText']))
 
-            #data.append(Paragraph('INQUIRY :  '+inq,styles['BodyText']))
             data.append(Paragraph('', styles['Bullet']))
             count +=1
 
@@ -107,7 +105,6 @@ class getReport(View):
 
 class addTrainingSets(View):
     temp1 = "adminHome/adminHome.html"
-    #temp = "tem.html"
     def post(self,request):
         layer = request.POST.get('layer')
         clas = request.POST.get('class')
@@ -141,9 +138,7 @@ class addTrainingSets(View):
                     finalSet = (trainData.makeBags(set_object))
                     set = finalSet[0]
                     write(set[0],set[1], str(layer), str(parent),finalSet[1])
-                    #write(set[0],set[1],layer,parent)
                     result = read(layer,parent)
-                    #result =  clasify("bus does not come at time",1,0,set[0],set[1],list(["bus","train"]))
                     return render(request,self.temp1,{'layer':layer, 'clas':clas ,'parent':parent,
                                                      'sentence':sentence,'obj':obj,'msg':"yes",
                                                      'words':finalSet[1],'allsent':finalSet[2],'classe':finalSet[3],

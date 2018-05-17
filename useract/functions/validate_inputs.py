@@ -14,7 +14,6 @@ def validBusNumber(num):
     return returnVal
 
 def validateTrainName(name):
-    #name = name.lower().strip()
     returnVal = False
 
     trainName = TrainDetails.objects.filter(train_name=str(name))

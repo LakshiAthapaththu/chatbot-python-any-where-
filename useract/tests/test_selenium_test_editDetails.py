@@ -14,16 +14,17 @@ class EditDetailsTestCase(LiveServerTestCase):
         #self.selenium.quit()
         #super(EditDetailsTestCase, self).tearDown()
 
-    def test_edit_details_get(self):
-        selenium = self.selenium
-        selenium.get('http://127.0.0.1:8000/useract/edit/')
+    #def test_edit_details_get(self):
+        #selenium = self.selenium
+
+        #selenium.get('http://127.0.0.1:8000/useract/edit/')
         #username = selenium.find_element_by_id('abc')
         #pw = selenium.find_element_by_name('password')
-        submit = selenium.find_element_by_name('sub')
+        #submit = selenium.find_element_by_name('sub')
 
         # Fill the form with data
         #username.send_keys('Lakshi')
         #pw.send_keys('Dinu+0929')
         # submitting the form
-        submit.send_keys(Keys.RETURN)
+        #submit.send_keys(Keys.RETURN)
         # check the returned

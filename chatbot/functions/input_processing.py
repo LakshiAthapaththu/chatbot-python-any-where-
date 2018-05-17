@@ -4,7 +4,7 @@ from chatbot.models import  train, sets
 import nltk
 from nltk.stem.lancaster import LancasterStemmer
 stemmer = LancasterStemmer()
-#............remove this
+
 def get_all_words(layer,parent):
     ignore_words =['?'] #add more into this
     all_words = []

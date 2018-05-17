@@ -32,14 +32,15 @@ url(r'^edit/$',customerView.editDetails.as_view(),name='editDetails'),
 url(r'^test/$',customerView.testing,name='test'),
 url(r'^getProPic/$',customerView.getProPic,name='getProPic'),
 
-    #new
+#external user vies
 url(r'^authreport/$',externalUserView.getReport.as_view(),name='authreport'),
 url(r'^exhome/$',externalUserView.getSearchHome.as_view(),name='exhome'),
 #testing purposes
 
-url(r'^chatWindow/$',views.getChatWindow,name='chatWindow'),
+#url(r'^chatWindow/$',views.getChatWindow,name='chatWindow'),
 #get the chatwindow remove later
-url(r'^get/$',customerView.getpage,name='get'),
+#url(r'^get/$',customerView.getpage,name='get'),
+#for some testing purpposes
 url(r'^getsets/$',customerView.getAllsets,name='getsets')
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

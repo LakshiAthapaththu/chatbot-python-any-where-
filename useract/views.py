@@ -6,23 +6,12 @@ from chatbot.models import  Classes,Layers
 from .models import Inquiry
 from useract.functions import chat
 from useract.models import Report,Inquiry,Authority,User
-from django.contrib.auth.decorators import login_required
-#load home page
-
-#@login_required(login_url="/useract/home/")
-#class getHomePage(View):
-    #template = 'home/home.html'
-     #def get(self,request):
-        #chat.setTo(0)
-        #return render(request, self.template, {'user': request.session['users'].upper(), #})
 
 
 def getHomePage(request):
     chat.setTo(0)
     template = loader.get_template('home/home.html')
     return HttpResponse(template.render(request),{'user': request.session['users'].upper()})
-
-
 
 
 class getAdminPage(View):
@@ -40,7 +29,6 @@ class getAdminPage(View):
 
 
 def userGuide(request):
-
     #adddatabus()
     #addtotrain()
     #addTrainForDate()
@@ -52,12 +40,10 @@ def viewReport(request):
     template = loader.get_template('viewReport/daily_report.html')
     return HttpResponse(template.render(request))
 
-def getChatWindow(request):
+#def getChatWindow(request):
 
-    template = loader.get_template('chatWindow/chatWindow.html')
-    return HttpResponse(template.render(request))
-
-
+    #template = loader.get_template('chatWindow/chatWindow.html')
+    #return HttpResponse(template.render(request))
 
 def adddatabus():
     #for busses

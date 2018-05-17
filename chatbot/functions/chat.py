@@ -2,7 +2,6 @@ import numpy
 
 from chatbot.functions.general_functions import sigmoid
 from .input_processing import give_word_bag,get_all_words
-from .trainData import trainData
 from chatbot.functions import  storeSynapes
 def think(sentence, layer,parent,synapse_0,synapse_1):
     y = give_word_bag(sentence.lower(),(storeSynapes.read(layer,parent))[2])

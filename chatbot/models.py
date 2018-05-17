@@ -34,4 +34,3 @@ class train(models.Model):
     train_state = models.BooleanField()
 
 
-#testing purposes

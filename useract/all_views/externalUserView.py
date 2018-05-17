@@ -1,4 +1,4 @@
-from django.http import JsonResponse
+
 from django.shortcuts import render
 from django.views.generic import View
 from useract.functions import validate_inputs
@@ -16,7 +16,6 @@ class getReport(View):
             for letter in date:
                 if (letter != "/"):
                     new_date = new_date + letter
-            #just put a number change later
             authr = request.session['auth']
             report_id = str(authr) + str(new_date)
             authorityName = Authority.objects.filter(authority_id=int(authr))
@@ -58,7 +57,7 @@ class getSearchHome(View):
     def get(self, request):
         return render(request, self.template, {'user': request.session['users']})
 
-
+#report for monthly inquiry variation
 def generateReportData(date,auth):
     dic= {'1':'Jan','2':'Feb','3':'Mar','4':'Apr','5':'May','6':'Jun','7':'Jul',
           '8':'Aug','9':'Sep','10':'Oct','11':'Nov','12':'Dec'}
@@ -106,6 +105,7 @@ def generateReportData(date,auth):
 
     return num_of_inquiry,months,nameofmonths
 
+#report for daily inquiry variation
 def generateReportData2(date,auth):
     dic = {'1': 'Jan', '2': 'Feb', '3': 'Mar', '4': 'Apr', '5': 'May', '6': 'Jun', '7': 'Jul',
            '8': 'Aug', '9': 'Sep', '10': 'Oct', '11': 'Nov', '12': 'Dec'}
